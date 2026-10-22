@@ -1,0 +1,6 @@
+{
+  "name": "iKout",
+  "description": "تطبيق ولعبة كوت بوستة بتصميم عربي مخصص للهواتف المحمولة وطاولة لعب خضراء أنيقة",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

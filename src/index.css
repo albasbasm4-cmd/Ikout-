@@ -1,0 +1,188 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --felt-center: #0d4a34;
+    --felt-edge: #072b1d;
+    --felt-shadow: #03150e;
+    --gold-accent: #d4af37;
+    --gold-light: #f3e5ab;
+  }
+
+  html, body, #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    touch-action: manipulation;
+    -webkit-touch-callout: none;
+    overscroll-behavior: none;
+  }
+
+  body {
+    background-color: #030d08;
+    color: #e2e8f0;
+    font-family: 'Cairo', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Premium Diwaniya Casino Felt */
+.table-felt {
+  background: 
+    radial-gradient(circle at 50% 45%, #0f583e 0%, #0a3d2b 45%, #06281c 80%, #031710 100%);
+  box-shadow: inset 0 0 100px rgba(0, 0, 0, 0.85);
+}
+
+/* Authentic Dark Walnut Wood Rail */
+.wood-rail {
+  background: 
+    linear-gradient(135deg, #1f0f08 0%, #361b10 25%, #2a150c 50%, #442315 75%, #180b06 100%);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.8),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2),
+    inset 0 -2px 6px rgba(0, 0, 0, 0.8);
+}
+
+/* Gold Inlay Trim */
+.gold-trim {
+  border: 1.5px solid #d4af37;
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.3), inset 0 0 6px rgba(212, 175, 55, 0.2);
+}
+
+/* Card Smooth Animations & Transitions */
+@keyframes cardThrow {
+  0% {
+    transform: scale(0.6) translateY(60px);
+    opacity: 0.3;
+  }
+  70% {
+    transform: scale(1.05) translateY(-4px);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes dealCard {
+  0% {
+    transform: translateY(100px) scale(0.65) rotate(12deg);
+    opacity: 0;
+  }
+  70% {
+    transform: translateY(-8px) scale(1.04) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes shakeCard {
+  0%, 100% { transform: translateX(0); }
+  20%, 60% { transform: translateX(-6px) rotate(-2deg); }
+  40%, 80% { transform: translateX(6px) rotate(2deg); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 12px 2px rgba(251, 191, 36, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 24px 6px rgba(251, 191, 36, 0.95);
+  }
+}
+
+@keyframes trickGather {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(0.85) translate(var(--target-x, 0px), var(--target-y, 0px));
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(0.2) translate(var(--target-x, 0px), var(--target-y, 0px));
+    opacity: 0;
+  }
+}
+
+.animate-card-throw {
+  animation: cardThrow 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+
+.animate-deal-card {
+  animation: dealCard 0.45s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+}
+
+.animate-card-shake {
+  animation: shakeCard 0.35s ease-in-out;
+}
+
+.animate-turn-pulse {
+  animation: pulseGlow 1.6s infinite ease-in-out;
+}
+
+.animate-gather-trick {
+  animation: trickGather 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Custom Scrollbar for Diwaniya scoreboard sheet */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.3);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.7);
+}
+
+@keyframes deviceRotate {
+  0%, 20% {
+    transform: rotate(0deg);
+  }
+  50%, 80% {
+    transform: rotate(-90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-device-rotate {
+  animation: deviceRotate 2.5s ease-in-out infinite;
+}
+
+/* Safe area padding utilities */
+.p-safe {
+  padding-top: max(0.5rem, env(safe-area-inset-top));
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+  padding-left: max(0.75rem, env(safe-area-inset-left));
+  padding-right: max(0.75rem, env(safe-area-inset-right));
+}
+
+.px-safe {
+  padding-left: max(0.75rem, env(safe-area-inset-left));
+  padding-right: max(0.75rem, env(safe-area-inset-right));
+}
+
+.pt-safe {
+  padding-top: max(0.5rem, env(safe-area-inset-top));
+}
+
+.pb-safe {
+  padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+}

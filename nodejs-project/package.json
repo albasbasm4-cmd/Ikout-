@@ -1,0 +1,9 @@
+{
+  "name": "ikout-nodejs-server",
+  "version": "1.0.0",
+  "description": "Embedded WebSocket server relay for iKout",
+  "main": "main.js",
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}
